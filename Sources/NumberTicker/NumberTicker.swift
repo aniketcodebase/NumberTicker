@@ -67,11 +67,16 @@ public struct NumberTicker: View {
                 NumberAccessory(text: prefix, style: .prefix, font: font)
                     .animation(.none)
             }
+            Text("")
+                .padding(1)
             ForEach(0..<numberComponentsManager.numberComponents.count, id: \.self) { index in
                 HStack(spacing: 0) {
                     NumberComponent(numberComponent: self.numberComponentsManager.getNumberComponent(at: index), animation: self.animation, font: self.font, digitFrame: self.$digitFrame)
                 }
             }
+            
+            Text("")
+                .padding(1)
             if !suffix.isEmpty {
                 NumberAccessory(text: suffix, style: .suffix, font: font)
                     .animation(.none)
